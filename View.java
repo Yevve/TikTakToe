@@ -39,13 +39,13 @@ public class View {
                 button.setPreferredSize(new Dimension(50,50));
                 button.addActionListener(new ActionListener(){
                     @Override
-                    public void actionPreformed(ActionEvent e){
-                        controller.unitClicked(_r,_c);
+                    public void actionPerformed(ActionEvent e){
+                      controller.unitClicked(_r,_c);
                     }
-                });
-                myButtonPanel.add(button);
-            }
+                  });
+                  myButtonPanel.add(button);
         }
+        
         frame.getContentPane().add(myMainPanel);
         
         //Display the window.
