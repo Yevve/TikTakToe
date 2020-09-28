@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.*;
 
-public class TerribleTicTacToe {
+public class Lab04TerribleTicTacToe {
 
 	static public int player = 0;
 	static public char[][] board = new char[3][3];
