@@ -26,7 +26,7 @@ public class View {
                 int _r=r;
                 int _c=c;
                 JButton button=buttons[r][c]=new JButton(" ");
-                button.setPreferredSize(new Dimension(150,50));
+                button.setPreferredSize(new Dimension(50,50));
                 button.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e){

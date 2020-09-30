@@ -14,6 +14,28 @@ static boolean gameover = false;
         
 		JButton checkWin[][]= controller.view.buttons;
 		boolean win = false;
+
+		for(int i=0;i<controller.view.rows;i+=1){
+			for(int j=0;j<controller.view.cols;j+=1){
+				if(checkWin[i][j].getText()=="O" && checkWin[i+1][j].getText()=="O"&& checkWin[i+2][j].getText()=="O"){
+					win=true;
+				}
+				if(checkWin[i][j].getText()=="O" && checkWin[i][j+1].getText()=="O"&& checkWin[i][j+2].getText()=="O"){
+					win=true;
+				}
+				if(checkWin[i][j].getText()=="O" && checkWin[i+1][j+1].getText()=="O"&& checkWin[i+2][j+2].getText()=="O"){
+					win=true;
+				}
+			
+			}
+
+		}
+		return win;
+
+
+
+
+/*
 		if(checkWin[0][0].getText() == "O" && checkWin[0][1].getText() == "O" && checkWin[0][2].getText() == "O")
 			win = true;
 		if(checkWin[1][0].getText() == "O" && checkWin[1][1].getText() == "O" && checkWin[1][2].getText() == "O")
@@ -34,6 +56,7 @@ static boolean gameover = false;
 			win = true;
 		
 		return win;
+		*/
 	}
 
 	public boolean checkifP2win() {
