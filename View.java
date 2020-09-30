@@ -4,8 +4,8 @@ import java.awt.GridLayout;
 import java.awt.event.*;
 
 public class View {
-    int rows=3;
-    int cols=3;
+    int rows=9;
+    int cols=9;
     static private Controller controller;
     public JButton buttons[][]= new JButton [rows][cols];
     static public int player = 0;
@@ -19,14 +19,14 @@ public class View {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
     JPanel myButtonPanel = new JPanel();
-    myButtonPanel.setLayout(new GridLayout(3,3));
+    myButtonPanel.setLayout(new GridLayout(rows,cols));
 
     for(int r=0; r<rows;r+=1){
             for(int c=0; c<cols;c+=1){
                 int _r=r;
                 int _c=c;
                 JButton button=buttons[r][c]=new JButton(" ");
-                button.setPreferredSize(new Dimension(50,50));
+                button.setPreferredSize(new Dimension(150,50));
                 button.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e){

@@ -1,13 +1,16 @@
 public class Controller {
     public View view;
     public Player player;
-    //public View view1;
-    
+    public View view1;
+    boolean yes= false;
     
     public Controller(){
         this.view=new View(this);
         this.player =new Player(this);
-        //this.view1=new View(this);
+        
+        if(yes==true){
+            this.view1=new View(this);
+        }
         
         
     }
