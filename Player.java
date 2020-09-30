@@ -1,12 +1,16 @@
 public class Player {
 public Move move;
-public Player(){
+public Controller controller;
+static public int player=0;
 
+public Player(Controller _controller){
+this.controller=_controller;
+this.move=new Move(controller);
 }
 
-public int Player(Move move){
+public void moveMade(int _r,int _c){
+move.moveMake(_r, _c);
 
-return 0;
 }
 
 

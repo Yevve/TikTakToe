@@ -6,9 +6,10 @@ import java.awt.event.*;
 public class View {
     int rows=3;
     int cols=3;
-    static public Controller controller;
+    static private Controller controller;
     public JButton buttons[][]= new JButton [rows][cols];
-    public int player = 0;
+    static public int player = 0;
+    JButton myLabel;
     
 
     public View(Controller _controller){
@@ -18,8 +19,24 @@ public class View {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
     JPanel myButtonPanel = new JPanel();
-        
     myButtonPanel.setLayout(new GridLayout(3,3));
+
+    for(int r=0; r<rows;r+=1){
+            for(int c=0; c<cols;c+=1){
+                final int _r=r;
+                final int _c=c;
+                JButton button=buttons[r][c]=new JButton();
+                button.setPreferredSize(new Dimension(50,50));
+                button.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e){
+                      controller.unitClicked(_r,_c);
+                    }
+                  });
+                  myButtonPanel.add(button);
+        }    
+
+    }
    
     JPanel myTextPanel = new JPanel();
     myTextPanel.setLayout(new GridLayout(1,1));
@@ -34,21 +51,8 @@ public class View {
 
     
 
-        for(int r=0; r<rows;r+=1){
-            for(int c=0; c<cols;c+=1){
-                final int _r=r;
-                final int _c=c;
-                JButton button=buttons[r][c]=new JButton();
-                button.setPreferredSize(new Dimension(50,50));
-                button.addActionListener(new ActionListener(){
-                    @Override
-                    public void actionPerformed(ActionEvent e){
-                      controller.unitClicked(_r,_c);
-                    }
-                  });
-                  myButtonPanel.add(button);
-        }
-    }
+        
+    
 
         frame.getContentPane().add(myMainPanel);
         

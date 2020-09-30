@@ -1,13 +1,15 @@
+import javax.swing.JButton;
+
 public class RuleEngine {
 static public View view;
 public Move move;
-public RuleEngine(View _view){
+public RuleEngine(Controller _controller){
     this.view= _view;
-        
+    
 	
 }
 static boolean gameover = false;
-    char checkWin = move.moves[][];
+    JButton checkWin=move.button.getText();
 	public static boolean checkifP1win() {
         boolean win = false;
         
