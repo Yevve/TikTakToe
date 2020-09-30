@@ -4,9 +4,10 @@ public Player(){
 
 }
 
-public Player(Move move){
-this.move= new Move();
+public int Player(Move move){
+
+return 0;
 }
-static private Player player;
+
 
 }
