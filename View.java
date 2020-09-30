@@ -9,7 +9,7 @@ public class View {
     static private Controller controller;
     public JButton buttons[][]= new JButton [rows][cols];
     static public int player = 0;
-    JButton myLabel;
+    JLabel myLabel;
     
 
     public View(Controller _controller){
@@ -23,8 +23,8 @@ public class View {
 
     for(int r=0; r<rows;r+=1){
             for(int c=0; c<cols;c+=1){
-                final int _r=r;
-                final int _c=c;
+                int _r=r;
+                int _c=c;
                 JButton button=buttons[r][c]=new JButton(" ");
                 button.setPreferredSize(new Dimension(50,50));
                 button.addActionListener(new ActionListener(){
@@ -41,7 +41,7 @@ public class View {
     JPanel myTextPanel = new JPanel();
     myTextPanel.setLayout(new GridLayout(1,1));
     myTextPanel.setPreferredSize(new Dimension(150,50));
-    JLabel myLabel = new JLabel("player 1's turn", SwingConstants.CENTER);
+    myLabel = new JLabel("player 1's turn", SwingConstants.CENTER);
     myTextPanel.add(myLabel);
         
     JPanel myMainPanel = new JPanel();

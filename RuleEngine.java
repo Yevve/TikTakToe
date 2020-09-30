@@ -1,62 +1,62 @@
 import javax.swing.JButton;
 
 public class RuleEngine {
-static public View view;
-public Move move;
+public Controller controller;
 public RuleEngine(Controller _controller){
-    
+    this.controller=_controller;
     
 	
 }
 static boolean gameover = false;
-    JButton checkWin=controller.button.getText();
-	public static boolean checkifP1win() {
-        boolean win = false;
+    
+	public boolean checkifP1win() {
         
-		
-		
-		if([0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O')
+        
+		JButton checkWin[][]= controller.view.buttons;
+		boolean win = false;
+		if(checkWin[0][0].getText() == "O" && checkWin[0][1].getText() == "O" && checkWin[0][2].getText() == "O")
 			win = true;
-		if(board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O')
+		if(checkWin[1][0].getText() == "O" && checkWin[1][1].getText() == "O" && checkWin[1][2].getText() == "O")
 			win = true;
-		if(board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O')
-			win = true;
-
-		if(board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O')
-			win = true;
-		if(board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O')
-			win = true;
-		if(board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O')
+		if(checkWin[2][0].getText() == "O" && checkWin[2][1].getText() == "O" && checkWin[2][2].getText() == "O")
 			win = true;
 
-		if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
+		if(checkWin[0][0].getText() == "O" && checkWin[1][0].getText() == "O" && checkWin[2][0].getText() == "O")
 			win = true;
-		if(board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')
+		if(checkWin[0][1].getText() == "O" && checkWin[1][1].getText() == "O" && checkWin[2][1].getText() == "O")
+			win = true;
+		if(checkWin[0][2].getText() == "O" && checkWin[1][2].getText() == "O" && checkWin[2][2].getText() == "O")
+			win = true;
+
+		if(checkWin[0][0].getText() == "O" && checkWin[1][1].getText() == "O" && checkWin[2][2].getText() == "O")
+			win = true;
+		if(checkWin[0][2].getText() == "O" && checkWin[1][1].getText() == "O" && checkWin[2][0].getText() == "O")
 			win = true;
 		
 		return win;
 	}
 
-	public static boolean checkifP2win() {
+	public boolean checkifP2win() {
+		JButton checkWin[][]= controller.view.buttons;
 		boolean win = false;
 		
-		if(board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X')
+		if(checkWin[0][0].getText() == "X" && checkWin[0][1].getText() == "X" && checkWin[0][2].getText() == "X")
 			win = true;
-		if(board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X')
+		if(checkWin[1][0].getText() == "X" && checkWin[1][1].getText() == "X" && checkWin[1][2].getText() == "X")
 			win = true;
-		if(board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X')
-			win = true;
-
-		if(board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X')
-			win = true;
-		if(board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X')
-			win = true;
-		if(board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X')
+		if(checkWin[2][0].getText() == "X" && checkWin[2][1].getText() == "X" && checkWin[2][2].getText() == "X")
 			win = true;
 
-		if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+		if(checkWin[0][0].getText() == "X" && checkWin[1][0].getText() == "X" && checkWin[2][0].getText() == "X")
 			win = true;
-		if(board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')
+		if(checkWin[0][1].getText() == "X" && checkWin[1][1].getText() == "X" && checkWin[2][1].getText() == "X")
+			win = true;
+		if(checkWin[0][2].getText() == "X" && checkWin[1][2].getText() == "X" && checkWin[2][2].getText() == "X")
+			win = true;
+
+		if(checkWin[0][0].getText() == "X" && checkWin[1][1].getText() == "X" && checkWin[2][2].getText() == "X")
+			win = true;
+		if(checkWin[0][2].getText() == "X" && checkWin[1][1].getText() == "X" && checkWin[2][0].getText() == "X")
 			win = true;
 		
 		return win;	

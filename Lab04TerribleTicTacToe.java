@@ -63,12 +63,12 @@ public class Lab04TerribleTicTacToe {
 		return win;	
 	}
 	
-	//public static void main(String[] args) {
+	public static void main(String[] args) {
 		
-		//for(int x = 0; x < 3; x++)
-			//for(int y = 0; y < 3; y++) {
-			//	board[x][y] = ' ';
-			//}
+		for(int x = 0; x < 3; x++)
+			for(int y = 0; y < 3; y++) {
+				board[x][y] = ' ';
+			}
 		
         JFrame frame = new JFrame("TerribleTicTacToe");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
