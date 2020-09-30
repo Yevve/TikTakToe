@@ -4,12 +4,12 @@ public class RuleEngine {
 static public View view;
 public Move move;
 public RuleEngine(Controller _controller){
-    this.view= _view;
+    
     
 	
 }
 static boolean gameover = false;
-    JButton checkWin=move.button.getText();
+    JButton checkWin=controller.button.getText();
 	public static boolean checkifP1win() {
         boolean win = false;
         

@@ -25,7 +25,7 @@ public class View {
             for(int c=0; c<cols;c+=1){
                 final int _r=r;
                 final int _c=c;
-                JButton button=buttons[r][c]=new JButton();
+                JButton button=buttons[r][c]=new JButton(" ");
                 button.setPreferredSize(new Dimension(50,50));
                 button.addActionListener(new ActionListener(){
                     @Override

@@ -1,6 +1,6 @@
 public class Player {
-public Move move;
-public Controller controller;
+Move move;
+Controller controller;
 static public int player=0;
 
 public Player(Controller _controller){
