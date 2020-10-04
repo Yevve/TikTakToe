@@ -9,19 +9,46 @@ public RuleEngine(Controller _controller){
 	
 }
 static boolean gameover = false;
+
+public boolean checkMiddle(int _r,int _c){
+	
+	if(controller.gridValue[_r-1][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkHoriLeft(int _r, int _c){
+	if(controller.gridValue[_r-2][_c]== Controller.checkValue.O && controller.gridValue[_r-1][_c]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkHoriRight(int _r,int _c){
+	if(controller.gridValue[_r+2][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
     
 	public boolean checkifP1win(int _r, int _c) {
 		boolean win = false;
+		if(_r==0){
 		
-		if(controller.gridValue[_r-1][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
-			win=true;
 		}
-		else if(controller.gridValue[_r-2][_c]== Controller.checkValue.O && controller.gridValue[_r-1][_c]== Controller.checkValue.O){
-			win=true;
-		}
-		else if(controller.gridValue[_r+2][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
-			win=true;
-		}
+		checkMiddle(_r, _c);
+		
+		checkHoriLeft(_r, _c);
+		checkHoriRight(_r, _c);
+
+
 		if(controller.gridValue[_r][_c-1]== Controller.checkValue.O && controller.gridValue[_r][_c+1]== Controller.checkValue.O){
 			win=true;
 		}
