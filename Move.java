@@ -5,6 +5,7 @@ public Controller controller;
 static boolean gameover=false;
 public RuleEngine ruleEngine;
 
+
 public Move(Controller _controller){
 this.controller=_controller;
 this.ruleEngine=new RuleEngine(_controller);
@@ -20,11 +21,12 @@ button1 = controller.view1.buttons[_r][_c];
 if(button.getText() != " " || gameover) return;
 if(Player.player== 0) {
     button.setText("O");
+    controller.gridValue[_r][_c]= Controller.checkValue.O;
     if(controller.yes==true){
     button1.setText("O");
     }
     
-    if(ruleEngine.checkifP1win()) {
+    if(ruleEngine.checkifP1win(_r,_c)) {
         controller.view.myLabel.setText("player 2 won!");
         if(controller.yes==true){ controller.view1.myLabel.setText("player 2 won!");}
         gameover = true;
@@ -38,6 +40,7 @@ if(Player.player== 0) {
 
 else {
     button.setText("X");
+    controller.gridValue[_r][_c]= Controller.checkValue.X;
     if(controller.yes==true) {
         button1.setText("X");
     }
@@ -52,4 +55,5 @@ else {
     if(controller.yes==true){ controller.view1.myLabel.setText("Player 2's trun");}
 }
 }
+
 }

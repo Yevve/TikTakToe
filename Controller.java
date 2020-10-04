@@ -2,8 +2,13 @@ public class Controller {
     public View view;
     public Player player;
     public View view1;
-    boolean yes= false;
-    
+    boolean yes= true;
+    public enum checkValue{
+        blanc,
+        X,
+        O
+        }
+    public checkValue[][] gridValue;
     public Controller(){
         this.view=new View(this);
         this.player =new Player(this);
@@ -11,7 +16,7 @@ public class Controller {
         if(yes==true){
             this.view1=new View(this);
         }
-        
+        gridValue= new checkValue[12][12];
         
     }
     

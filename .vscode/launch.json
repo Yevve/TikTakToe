@@ -6,16 +6,23 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Launcher",
+            "request": "launch",
+            "mainClass": "Launcher",
+            "projectName": "TikTakToe_73e4a217"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Launcher<TikTakToe_73e4a217>",
+            "name": "Debug (Launch)-Launcher<TikTakToe>",
             "request": "launch",
             "mainClass": "Launcher",
-            "projectName": "TikTakToe_73e4a217"
+            "projectName": "TikTakToe"
         }
     ]
 }
