@@ -17,6 +17,7 @@ static boolean gameover = false;
 
 		for(int i=0;i<controller.view.rows;i+=1){
 			for(int j=0;j<controller.view.cols;j+=1){
+				//check corner 1
 				if(checkWin[i][j].getText()=="O" && checkWin[i+1][j].getText()=="O"&& checkWin[i+2][j].getText()=="O"){
 					win=true;
 				}
@@ -26,6 +27,18 @@ static boolean gameover = false;
 				if(checkWin[i][j].getText()=="O" && checkWin[i+1][j+1].getText()=="O"&& checkWin[i+2][j+2].getText()=="O"){
 					win=true;
 				}
+				//check corner 2
+				if(checkWin[i][j].getText()=="O" && checkWin[i-1][j].getText()=="O"&& checkWin[i-2][j].getText()=="O"){
+					win=true;
+				}
+				if(checkWin[i][j].getText()=="O" && checkWin[i][j-1].getText()=="O"&& checkWin[i][j-2].getText()=="O"){
+					win=true;
+				}
+				if(checkWin[i][j].getText()=="O" && checkWin[i-1][j-1].getText()=="O"&& checkWin[i-2][j-2].getText()=="O"){
+					win=true;
+				}
+				//check corner 3
+				
 			
 			}
 

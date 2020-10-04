@@ -2,7 +2,7 @@ public class Controller {
     public View view;
     public Player player;
     public View view1;
-    public boolean yes= false;
+    boolean yes= false;
     
     public Controller(){
         this.view=new View(this);
