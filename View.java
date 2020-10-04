@@ -4,8 +4,8 @@ import java.awt.GridLayout;
 import java.awt.event.*;
 
 public class View {
-    int rows=9;
-    int cols=9;
+    int rows=3;
+    int cols=3;
     static private Controller controller;
     public JButton buttons[][]= new JButton [rows][cols];
     static public int player = 0;
