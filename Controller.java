@@ -16,7 +16,7 @@ public class Controller {
         if(yes==true){
             this.view1=new View(this);
         }
-        gridValue= new checkValue[12][12];
+        gridValue= new checkValue[9][9];
         
     }
     

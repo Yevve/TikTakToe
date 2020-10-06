@@ -8,11 +8,11 @@ public RuleEngine(Controller _controller){
     
 	
 }
-static boolean gameover = false;
+static int winCondition = 3;
 
-public boolean checkMiddle(int _r,int _c){
+public boolean checkHoriMid(int _r,int _c){
 	
-	if(controller.gridValue[_r-1][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
+	if(controller.gridValue[_r][_c-1]== Controller.checkValue.O && controller.gridValue[_r][_c+1]== Controller.checkValue.O){
 		return true;
 	}
 	else {
@@ -20,7 +20,7 @@ public boolean checkMiddle(int _r,int _c){
 	}
 }
 public boolean checkHoriLeft(int _r, int _c){
-	if(controller.gridValue[_r-2][_c]== Controller.checkValue.O && controller.gridValue[_r-1][_c]== Controller.checkValue.O){
+	if(controller.gridValue[_r][_c-1]== Controller.checkValue.O && controller.gridValue[_r][_c-1]== Controller.checkValue.O){
 		return true;
 	}
 	else {
@@ -28,7 +28,7 @@ public boolean checkHoriLeft(int _r, int _c){
 	}
 }
 public boolean checkHoriRight(int _r,int _c){
-	if(controller.gridValue[_r+2][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
+	if(controller.gridValue[_r][_c+2]== Controller.checkValue.O && controller.gridValue[_r][_c+1]== Controller.checkValue.O){
 		return true;
 	}
 	else {
@@ -36,33 +36,162 @@ public boolean checkHoriRight(int _r,int _c){
 	}
 }
 
+public boolean checkVertMid(int _r,int _c){
+	if(controller.gridValue[_r-1][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkVertiDown(int _r, int _c){
+	if(controller.gridValue[_r-2][_c]== Controller.checkValue.O && controller.gridValue[_r-1][_c]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkVertiUp(int _r, int _c){
+	if(controller.gridValue[_r+2][_c]== Controller.checkValue.O && controller.gridValue[_r+1][_c]== Controller.checkValue.O){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+public boolean checkDiagMidOne(int _r,int _c){
+	if (controller.gridValue[_r-1][_c-1]== Controller.checkValue.O && controller.gridValue[_r+1][_c+1]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkDiagMidTwo(int _r,int _c){
+	if (controller.gridValue[_r-1][_c+1]== Controller.checkValue.O && controller.gridValue[_r+1][_c-1]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+public boolean checkDiagUpLeft(int _r,int _c){
+	if (controller.gridValue[_r-1][_c-1]== Controller.checkValue.O && controller.gridValue[_r-2][_c-2]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkDiagDownRight(int _r,int _c){
+	if (controller.gridValue[_r+1][_c+1]== Controller.checkValue.O && controller.gridValue[_r+2][_c+2]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkDiagUpRight(int _r,int _c){
+	if (controller.gridValue[_r-1][_c+1]== Controller.checkValue.O && controller.gridValue[_r-2][_c+2]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+public boolean checkDiagDownLeft(int _r,int _c){
+	if (controller.gridValue[_r+1][_c-1]== Controller.checkValue.O && controller.gridValue[_r+2][_c-2]== Controller.checkValue.O){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
     
 	public boolean checkifP1win(int _r, int _c) {
-		boolean win = false;
-		if(_r==0){
+		
+		
+		
+		
+		if((_r>=0 && _r<=controller.view.rows)&& (_c>=0 && _c<=controller.view.cols)){
+			
+		    if(checkVertiUp(_r, _c)){
+				System.out.println("ver");
+				return true;
+			}
+	    	
 		
 		}
-		checkMiddle(_r, _c);
 		
-		checkHoriLeft(_r, _c);
-		checkHoriRight(_r, _c);
+		if((_r>=0 && _r<=controller.view.rows) && (_c>=0 && _c+2!=controller.view.cols && _c+1!=controller.view.cols )){
+			if(checkHoriRight(_r, _c)){
+				System.out.println("hor");
+				return true;
+			}
+		}
+		
+		/*
+		if(_r==controller.view.rows && _c==controller.view.cols){
+		
+			if(checkHoriLeft(_r, _c)){
+				return true;
+			}
+			if(checkVertiDown(_r, _c)){
+				return true;
+			}
+			if(checkDiagDownLeft(_r, _c)){
+				return true;
+			}
+			if(checkDiagUpRight(_r, _c)){
+				System.out.println("dig up right");
+				return true;
+			}	
+		}
+		
+		
 
-
-		if(controller.gridValue[_r][_c-1]== Controller.checkValue.O && controller.gridValue[_r][_c+1]== Controller.checkValue.O){
-			win=true;
+		if((_r==0 && _c==0 ) && (_r==controller.view.rows && _c==controller.view.cols)){
+			System.out.println("mid");
+			if(checkHoriRight(_r, _c)){
+				return true;
+			}
+		    if(checkVertiUp(_r, _c)){
+				return true;
+			}
+	    	if(checkDiagUpRight(_r, _c)){
+				return true;
+			}
+			if(checkHoriLeft(_r, _c)){
+				return true;
+			}
+			if(checkVertiDown(_r, _c)){
+				return true;
+			}
+			if(checkDiagDownLeft(_r, _c)){
+				return true;
+			}	
+		    if(checkHoriMid(_r, _c)){
+				return true;
+			}
+			if(checkVertMid(_r, _c)){
+				return true;
+			}
+	    	if(checkDiagMidOne(_r, _c)){
+				return true;
+			}
+			if(checkDiagDownRight(_r, _c)){
+				return true;
+			}
+			if(checkDiagUpLeft(_r, _c)){
+				return true;
+			}
 		}
-		else if(controller.gridValue[_r][_c-2]== Controller.checkValue.O && controller.gridValue[_r][_c-1]== Controller.checkValue.O){
-			win=true;
-		}
-		else if(controller.gridValue[_r][_c+2]== Controller.checkValue.O && controller.gridValue[_r][_c+1]== Controller.checkValue.O){
-			win=true;
-		}
+		*/
 		
-		
-		
-		
-		return win;
+		return false;
 
 	}
 		/*for(int i=0;i<controller.view.rows;i+=1){
