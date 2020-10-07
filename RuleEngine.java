@@ -12,7 +12,7 @@ public RuleEngine(Controller _controller){
 	}
 	
 }
-private int winCondition = 3;
+private int winCondition = 5;
 private int count=0;
 
 
