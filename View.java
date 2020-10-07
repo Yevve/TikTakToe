@@ -8,11 +8,12 @@ public class View {
     int cols=9;
     static private Controller controller;
     public JButton buttons[][]= new JButton [rows][cols];
-    static public int player = 0;
     JLabel myLabel;
-    
+    private Player player;
+    private RuleEngine ruleEngine;
 
-    public View(Controller _controller){
+    public View(Controller _controller, Player player){
+        this.player=player;
         this.controller=_controller;
 
     JFrame frame = new JFrame("TicTacToe");
@@ -30,7 +31,7 @@ public class View {
                 button.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e){
-                      controller.unitClicked(_r,_c);
+                      controller.unitClicked(_r,_c,ruleEngine.playersTurn);
                     }
                   });
                   myButtonPanel.add(button);

@@ -1,16 +1,17 @@
 public class Player {
 Move move;
 Controller controller;
-static public int player=0;
-public String playerToken;
-public Player(Controller _controller){
+public int playerID;
+
+public Player(Controller _controller,int playerID){
+this.playerID= playerID;
 this.controller=_controller;
 this.move=new Move(controller);
 
 }
 
-public void moveMade(int _r,int _c){
-move.moveMake(_r, _c);
+public void moveMade(int _r,int _c, int playersTurn){
+    move.moveMake(_r, _c,playersTurn);
 
 }
 
