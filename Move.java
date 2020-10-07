@@ -26,15 +26,15 @@ if(Player.player== 0) {
     button1.setText("O");
     }
     
-    if(ruleEngine.checkifP1win(_r,_c)) {
-        controller.view.myLabel.setText("player 2 won!");
-        if(controller.yes==true){ controller.view1.myLabel.setText("player 2 won!");}
+    if(ruleEngine.checkIfWin(_r,_c)) {
+        controller.view.myLabel.setText("player 1 won!");
+        if(controller.yes==true){ controller.view1.myLabel.setText("player 1 won!");}
         gameover = true;
         return;
     }
     Player.player=1;
-    controller.view.myLabel.setText("Player 1's trun");
-    if(controller.yes==true){controller.view1.myLabel.setText("Player 1's trun");}
+    controller.view.myLabel.setText("Player 2's trun");
+    if(controller.yes==true){controller.view1.myLabel.setText("Player 2's trun");}
 }
     
 
@@ -44,15 +44,15 @@ else {
     if(controller.yes==true) {
         button1.setText("X");
     }
-    if(ruleEngine.checkifP2win()) {
+    if(ruleEngine.checkIfWin(_r,_c)) {
         controller.view.myLabel.setText("player 2 won!");
         if(controller.yes==true){controller.view1.myLabel.setText("player 2 won!");}
         gameover = true;
         return;
     }
     Player.player =0;
-    controller.view.myLabel.setText("Player 2's trun");
-    if(controller.yes==true){ controller.view1.myLabel.setText("Player 2's trun");}
+    controller.view.myLabel.setText("Player 1's trun");
+    if(controller.yes==true){ controller.view1.myLabel.setText("Player 1's trun");}
 }
 }
 

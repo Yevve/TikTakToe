@@ -4,10 +4,21 @@ public class Controller {
     public View view1;
     boolean yes= false;
     public enum checkValue{
-        blanc,
-        X,
-        O
+        blanc("0"),
+        X("X"),
+        O("X"),
+        Z("Z"),
+        Y("Y");
+        private String token;
+        checkValue(String checkToken){
+            this.token=checkToken;
         }
+        public String getToken(){
+            return token;
+        }
+        
+        }
+
     public checkValue[][] gridValue;
     public Controller(){
         this.view=new View(this);
