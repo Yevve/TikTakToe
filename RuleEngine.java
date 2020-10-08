@@ -1,13 +1,15 @@
+import java.lang.reflect.Array;
+
 import javax.swing.JButton;
 
 public class RuleEngine {
 public Controller controller;
-
-public int players=3;
+public Player player;
+private int players=3;
 private int winCondition = 3;
-
 private int count=0;
-public int playersTurn;
+public int playersTurn=0;
+
 //private Controller.checkValue[] tokens=Controller.checkValue.values();
 public char[] playerToken=new char[players];
 
@@ -20,8 +22,8 @@ public RuleEngine(Controller _controller){
 	
 	
 }
-public char getPlayerToken(int playerID) {
-	return playerToken[playerID];
+public char getPlayerToken(int playersTurn) {
+	return playerToken[playersTurn];
 }
 public int playerAmount(){
 	return players;
@@ -29,9 +31,9 @@ public int playerAmount(){
 public int getPlayersTurn(){
 	return playersTurn;
 }
-public int nextPTurn(){
-	playersTurn = playersTurn + 1 % players;
-	return playersTurn;
+public void nextPTurn(){
+	playersTurn = getPlayersTurn() + 1 % players;
+	
 }
 public boolean checkIfWin(int _r, int _c) {
 	JButton buttons[][]=controller.view[0].buttons;

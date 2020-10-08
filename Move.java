@@ -20,22 +20,37 @@ if(button.getText() != " " || gameover) return;
 for(int i=0;i<controller.view.length;i++){
    
     if(ruleEngine.getPlayersTurn()==i){
-        button.setText(Character.toString(ruleEngine.getPlayerToken(player.playerID)));
-    }
+        System.out.println("Playermvoe");
+        button.setText(Character.toString(ruleEngine.getPlayerToken(ruleEngine.playersTurn)));
+   }
+
+    
 
     if(ruleEngine.checkIfWin(_r, _c)){
-        controller.view[i].myLabel.setText("Player"+ (player.playerID)+"won ");
+        
+        System.out.println("movecheck");
+        controller.view[i].myLabel.setText("Player"+ (ruleEngine.playersTurn)+"won ");
         gameover=true;
         return;
-    }
-
-    ruleEngine.nextPTurn();
-    controller.view[i].myLabel.setText("Player"+(player.playerID)+"'s turn'");
-
-
-
-
+    
+        
+} 
 }
+    ruleEngine.nextPTurn();
+    for(int i=0;i<controller.view.length;i++){
+    
+    controller.view[i].myLabel.setText("Player"+(ruleEngine.playersTurn)+"'s turn'");
+    System.out.println("next player");
+}
+   
+    
+    
+    
+
+
+
+
+
 
 
 

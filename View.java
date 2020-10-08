@@ -9,10 +9,11 @@ public class View {
     static private Controller controller;
     public JButton buttons[][]= new JButton [rows][cols];
     JLabel myLabel;
-    private Player player;
-    private RuleEngine ruleEngine;
+    Player player;
+    RuleEngine ruleEngine;
 
-    public View(Controller _controller, Player player){
+    public View(Controller _controller, Player player,int playersTurn){
+        this.ruleEngine=ruleEngine;
         this.player=player;
         this.controller=_controller;
 
@@ -31,7 +32,7 @@ public class View {
                 button.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e){
-                      controller.unitClicked(_r,_c,ruleEngine.playersTurn);
+                      controller.unitClicked(_r,_c,playersTurn);
                     }
                   });
                   myButtonPanel.add(button);
