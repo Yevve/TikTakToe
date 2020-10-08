@@ -29,8 +29,9 @@ public int playerAmount(){
 public int getPlayersTurn(){
 	return playersTurn;
 }
-public void nextPTurn(){
+public int nextPTurn(){
 	playersTurn = playersTurn + 1 % players;
+	return playersTurn;
 }
 public boolean checkIfWin(int _r, int _c) {
 	JButton buttons[][]=controller.view[0].buttons;
